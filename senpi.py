@@ -1,23 +1,25 @@
 #!/usr/bin/env python3
 
-# NOTE: this example requires PyAudio because it uses the Microphone class
-
 import speech_recognition as sr
 import time
 import sys
 import os
 
 exitvar = 1
+recognitionString = "senpi" #Change this string to change the recognition keyword.
+recognitionStringLength = len(recognitionString) + 1
 
 def recognize(speech):
     global exitvar
+    speech = speech.lower()
     if len(speech) > 7:
-        speech = speech[7:len(speech)] #Need to make this a bit smarter- this implementation only works if senpai is at the beginning. Possible solution: speech[speech.lower.find("senpai"):speech.lower.find("senpai")+7]
+        speech = speech[recognitionStringLength:] #Need to make this a bit smarter- this implementation only works if the recognition string is at the beginning. Possibly only check if recognition string is at the beginning?
     else:
         print("Yes?")
         os.system("espeak \"Yes\"")
         return
-    if "stop listening" in speech.lower():  #Where the magic happens. This series of if/elif is where recognized speech is passed off to other programs.
+    print(speech.lower())
+    if "stop listening" in speech:  #Where the magic happens. This series of if/elif is where recognized speech is passed off to other programs.
         print("Shutting down.")
         os.system("espeak \"shutting down\"")
         exitvar = 0
@@ -32,7 +34,7 @@ def callback(recognizer, audio):
     try:
         speech = recognizer.recognize_google(audio)
         print("Google Speech Recognition thinks you said " + speech)
-        if "senpai" in speech.lower():
+        if recognitionString in speech.lower():
             recognize(speech)
     except sr.UnknownValueError:
         print("Google Speech Recognition could not understand audio")
