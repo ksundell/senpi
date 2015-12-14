@@ -6,8 +6,9 @@ import sys
 import os
 
 exitvar = 1
-recognitionString = "senpi" #Change this string to change the recognition keyword.
+recognitionString = "senpai" #Change this string to change the recognition keyword.
 recognitionStringLength = len(recognitionString) + 1
+os.chdir("C:\Program Files (x86)\eSpeak\command_line")
 
 def recognize(speech):
     global exitvar
@@ -54,7 +55,6 @@ os.system("espeak \"senpai active with keyword {}\"".format(recognitionString))
 # start listening in the background (note that we don't have to do this inside a `with` statement)
 stop_listening = r.listen_in_background(m, callback)
 # `stop_listening` is now a function that, when called, stops background listening
-os.chdir("C:\Program Files (x86)\eSpeak\command_line")
 
 # Loop to ensure continued operation
 while exitvar == 1:
