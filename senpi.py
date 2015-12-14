@@ -43,8 +43,13 @@ def callback(recognizer, audio):
 
 r = sr.Recognizer()
 m = sr.Microphone()
+os.system("espeak \"activating senpai\"")
+time.sleep(0.5)
+os.system("espeak \"quiet please\"")
 with m as source:
     r.adjust_for_ambient_noise(source) # we only need to calibrate once, before we start listening
+os.system("espeak \"senpai active with keyword {}\"".format(recognitionString))
+
 
 # start listening in the background (note that we don't have to do this inside a `with` statement)
 stop_listening = r.listen_in_background(m, callback)

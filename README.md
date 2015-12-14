@@ -3,4 +3,4 @@ Senpi is a series of Python scripts designed to allow users to control their Ras
 
 senpi.py is the main script. It activates always-on voice activation and by default listens for the keyword "Senpai". Commands should be structured to fit as much information as possible into one line- in other words, "Senpai turn on the speaker" should be parsed as one command (Speaker > On). Optimally, add-in scripts should be able to use voice recognition to allow "pulse" commands ("Senpi. "Yes?" Send a message to Bill. "What should I send?" Hello"), although the script is designed to work best with single commands ("Senpi, send a message to Bill that says Hello").
 
-Senpi uses [SpeechRecognition](https://pypi.python.org/pypi/SpeechRecognition/) by Anthony Zhang, and [espeak](http://espeak.sourceforge.net/), and is based off a sample program by SpeechRecognition creator Anthony Zhang.
+Senpi uses [SpeechRecognition](https://pypi.python.org/pypi/SpeechRecognition/) by Anthony Zhang, pyaudio, and [espeak](http://espeak.sourceforge.net/), and is based off a sample program by SpeechRecognition creator Anthony Zhang.
