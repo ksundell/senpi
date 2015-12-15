@@ -50,5 +50,11 @@ def messageRecord():
         else:
             os.system("espeak \"invalid response\"")
     os.system("espeak \"recording message for {}\"".format(person))
-    
-messageRecord()
+    #TODO: Add file-scanning function for creating files
+    #   Scan directory into array
+    #   Remove any files not containing name from array
+    #   Remove name + file extention from remaining array items (leaving just number)
+    #   Sort array items in ascending order
+    #   Filename is {name}{largest number + 1}.wav
+    #TODO: Add recording
+messageRecord() #Here for testing.
