@@ -4,6 +4,7 @@ import speech_recognition as sr
 import time
 import sys
 import os
+from say_hello import hello
 
 exitvar = 1
 recognitionString = "senpai" #Change this string to change the recognition keyword.
@@ -13,6 +14,7 @@ os.chdir("C:\Program Files (x86)\eSpeak\command_line")
 def recognize(speech):
     global exitvar
     speech = speech.lower()
+    #speech = "senpai say hello" #Uncomment for testing
     if len(speech) > 7:
         speech = speech[recognitionStringLength:] #Need to make this a bit smarter- this implementation only works if the recognition string is at the beginning. Possibly only check if recognition string is at the beginning?
     else:
@@ -25,6 +27,7 @@ def recognize(speech):
         os.system("espeak \"shutting down\"")
         exitvar = 0
         raise SystemExit
+    elif "say hello" in speech: hello()
     else:
         print("I don't know how to {}".format(speech))
         os.system("espeak \"I don't know how to {}\"".format(speech))
