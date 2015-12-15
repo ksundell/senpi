@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+#TODO: Add error-catching for missing modules
 import speech_recognition as sr
 import time
 import sys
